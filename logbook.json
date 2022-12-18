@@ -1,0 +1,29 @@
+{
+  "vacation": [
+    {
+      "island": "Anthrax island",
+      "hotel": "Budget hostel",
+      "arrival_date": "2023-01-01",
+      "departure_date": "2023-01-04",
+      "total_cost": "8",
+      "stars": "2",
+      "features": [{ "name": "Fruit basket for vitamin C", "cost": 1 }],
+      "addtional_info": "Thank you for saving a buck at Budget hostel."
+    },
+    {
+      "island": "Isla Bellevue",
+      "hotel": "Grand central Hotel",
+      "arrival_date": "2023-01-05",
+      "departure_date": "2023-01-08",
+      "total_cost": "11",
+      "stars": "3",
+      "features": [{ "name": "Pinball machine", "cost": 3 }],
+      "addtional_info": [
+        {
+          "greeting": "Thank you for choosing Centralhotellet",
+          "video": "https://www.youtube.com/watch?v=5Ym-k30X5PY"
+        }
+      ]
+    }
+  ]
+}

@@ -1,13 +1,6 @@
 <?php
 require(__DIR__ . "/hotelFunctions.php");
-
-$rooms = [
-    "economy",
-    "standard",
-    "luxury"
-]
-
-
+require(__DIR__ . "/prices.php");
 
 ?>
 <!DOCTYPE html>
@@ -29,23 +22,35 @@ $rooms = [
         </section>
     </header>
     <main>
-
         <section class="rooms">
-            <section class="room">
-
-            </section>
+            <?php foreach ($rooms as $room) : ?>
+                <div class="room">
+                    <h1><?php echo $room["room"] ?></h1>
+                </div>
+            <?php endforeach ?>
         </section>
-        <form action="" method="POST">
 
+        <section class="booking">
+            <form action="" method="POST">
+                <section class="transferCodeSection">
+                    <input type="text" name="transferCode" class="transferCode" placeholder="transfer code">
+                </section>
+                <select name="roomSelect" class="roomSelect">
+                    <?php foreach ($rooms as $room) : ?>
+                        <option><?php echo $room["room"] ?></option>
+                    <?php endforeach ?>
+                </select>
+                <section class="features">
+                    <?php foreach ($features as $feature) : ?>
+                        <div class="feature">
+                            <input type="checkbox" name=<?php echo $feature["feature"] ?>>
+                            <?php echo $feature["feature"] . " ($" . $feature["price"] . ")" ?>
+                        </div>
+                    <?php endforeach ?>
+                </section>
+            </form>
+        </section>
 
-            <select name="roomSelect" class="roomSelect">
-                <?php foreach ($rooms as $room) : ?>
-                    <option><?php echo $room ?></option>
-                <?php endforeach ?>
-            </select>
-
-
-        </form>
     </main>
 </body>
 

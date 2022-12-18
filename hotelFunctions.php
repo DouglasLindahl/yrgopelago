@@ -1,12 +1,12 @@
 <?php
 
-/* 
+/*
 Here's something to start your career as a hotel manager.
 
 One function to connect to the database you want (it will return a PDO object which you then can use.)
     For instance: $db = connect('hotel.db');
                   $db->prepare("SELECT * FROM bookings");
-                  
+
 one function to create a guid,
 and one function to control if a guid is valid.
 */

@@ -1,7 +1,15 @@
 <?php
+
+declare(strict_types=1);
 require(__DIR__ . "/hotelFunctions.php");
 require(__DIR__ . "/prices.php");
+require(__DIR__ . '/vendor/autoload.php');
 
+if (!$_SESSION["payment_passed"]) {
+    echo '<script>alert("payment unsuccessful")</script>';
+} else {
+    echo '<script>alert("payment successful")</script>';
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -31,26 +39,23 @@ require(__DIR__ . "/prices.php");
         </section>
 
         <section class="booking">
-            <form action="" method="POST">
-                <section class="transferCodeSection">
-                    <input type="text" name="transferCode" class="transferCode" placeholder="transfer code">
-                </section>
+            <form action="payment.php" method="POST">
                 <select name="roomSelect" class="roomSelect">
                     <?php foreach ($rooms as $room) : ?>
-                        <option><?php echo $room["room"] ?></option>
+                        <option value=<?php echo $room["price"] ?>><?php echo $room["room"] ?></option>
                     <?php endforeach ?>
                 </select>
                 <section class="features">
                     <?php foreach ($features as $feature) : ?>
                         <div class="feature">
-                            <input type="checkbox" name=<?php echo $feature["feature"] ?>>
+                            <input type="checkbox" name=<?php echo $feature["feature"] ?> value=<?php echo $feature["price"] ?>>
                             <?php echo $feature["feature"] . " ($" . $feature["price"] . ")" ?>
                         </div>
                     <?php endforeach ?>
                 </section>
+                <button type="submit">submit</button>
             </form>
         </section>
-
     </main>
 </body>
 

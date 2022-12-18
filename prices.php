@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 $rooms = [
     ["room" => "economy", "price" => 2],
     ["room" => "standard", "price" => 4],

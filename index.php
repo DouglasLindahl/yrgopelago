@@ -10,6 +10,7 @@ if (!$_SESSION["payment_passed"]) {
 } else {
     echo '<script>alert("payment successful")</script>';
 }
+echo 'Current PHP version: ' . phpversion();
 ?>
 <!DOCTYPE html>
 <html lang="en">

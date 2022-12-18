@@ -1,6 +1,11 @@
 {
-    "require": {
-        "vlucas/phpdotenv": "^5.5",
-        "guzzlehttp/guzzle": "^7.5"
+  "config": {
+    "platform": {
+      "php": "7.1.0"
     }
+  },
+  "require": {
+    "vlucas/phpdotenv": "^5.5",
+    "guzzlehttp/guzzle": "^7.5"
+  }
 }

@@ -22,12 +22,16 @@ $payment = $response->getBody()->getContents();
 $payment = json_decode($payment, true);
 $_SESSION["transfer_code"] = $payment["transferCode"];
 
-
-echo $_SESSION["transfer_code"] . " ($" . $_SESSION["totalCost"] . ")" . " will be added to account!";
 //add money to my account---------------
 
-
-
+$response = $client->request('POST', 'https://www.yrgopelago.se/centralbank/deposit', [
+    'form_params' => [
+        "user" => "Douglas", "transfercode" => $payment["transferCode"]
+    ]
+]);
+$response = $response->getBody()->getContents();
+$response = json_decode($response, true);
+var_dump($response);
 
 $_SESSION["payment_passed"] = true;
-header("location:index.php");
+//header("location:index.php");

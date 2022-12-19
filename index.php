@@ -5,12 +5,37 @@ require(__DIR__ . "/hotelFunctions.php");
 require(__DIR__ . "/prices.php");
 require(__DIR__ . '/vendor/autoload.php');
 
-if (!$_SESSION["payment_passed"]) {
-    echo '<script>alert("payment unsuccessful")</script>';
-} else {
-    echo '<script>alert("payment successful")</script>';
-}
-echo 'Current PHP version: ' . phpversion();
+// if (!$_SESSION["payment_passed"]) {
+//     echo '<script>alert("payment unsuccessful")</script>';
+// } else {
+//     echo '<script>alert("payment successful")</script>';
+// }
+// echo 'Current PHP version: ' . phpversion();
+$months = [
+    ["january", 31],
+    ["february", 28],
+    ["march", 31],
+    ["april", 30],
+    ["may", 31],
+    ["june", 30],
+    ["july", 31],
+    ["august", 31],
+    ["september", 30],
+    ["october", 31],
+    ["november", 30],
+    ["december", 31]
+];
+$days = [
+    "monday",
+    "tuesday",
+    "wednesday",
+    "thursday",
+    "friday",
+    "saturday",
+    "sunday"
+];
+$currenMonth = 1;
+$currenYear = 2023;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -35,6 +60,8 @@ echo 'Current PHP version: ' . phpversion();
             <?php foreach ($rooms as $room) : ?>
                 <div class="room">
                     <h1><?php echo $room["room"] ?></h1>
+                    <section class="calendar">
+                    </section>
                 </div>
             <?php endforeach ?>
         </section>
@@ -58,6 +85,7 @@ echo 'Current PHP version: ' . phpversion();
             </form>
         </section>
     </main>
+    <script src="calendar.js"></script>
 </body>
 
 </html>

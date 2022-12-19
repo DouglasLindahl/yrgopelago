@@ -12,7 +12,9 @@ use GuzzleHttp\Exception\ClientException;
 $client = new Client();
 $dotenv = Dotenv::createImmutable(__DIR__);
 $dotenv->load();
+echo $_POST["name"];
 
+echo date("d, m, y");
 $response = $client->request('POST', 'https://www.yrgopelago.se/centralbank/withdraw', [
     'form_params' => [
         "user" => $_POST["name"], "api_key" => $_POST["api_key"], "amount" => $_SESSION["totalCost"]
@@ -36,6 +38,5 @@ $response = $response->getBody()->getContents();
 $response = json_decode($response, true);
 echo "<pre>";
 var_dump($response);
-
 $_SESSION["payment_passed"] = true;
-header("location:index.php");
+//header("location:confirmation.php");

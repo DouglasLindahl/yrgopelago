@@ -1,5 +1,6 @@
 <?php
 
+$hotelName = "hotel";
 /*
 Here's something to start your career as a hotel manager.
 

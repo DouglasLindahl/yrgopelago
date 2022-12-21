@@ -1,3 +1,12 @@
+<?php
+session_start();
+$totalCost = 0;
+foreach ($_POST as $item) {
+    $totalCost += intval($item);
+}
+$_SESSION["totalCost"] = $totalCost;
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 

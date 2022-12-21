@@ -47,5 +47,9 @@ main {
 .calendarDay {
   width: 100%;
   aspect-ratio: 1/1;
-  background-color: hotpink;
+  background-color: gainsboro;
+}
+.booked {
+  background-color: gray;
+  opacity: 50%;
 }

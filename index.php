@@ -73,7 +73,17 @@ $currenYear = 2023;
                         <option value=<?php echo $room["price"] ?>><?php echo $room["room"] ?></option>
                     <?php endforeach ?>
                 </select>
-                <section class="features">
+                <section class="dates">
+                    <div>
+                        <p>arrival</p>
+                        <input type="date" name="arrivalDate" min="2023-01-01" max="2023-01-31">
+                    </div>
+                    <div>
+                        <p>departure</p>
+                        <input type="date" name="departureDate" min="2023-01-01" max="2023-01-31">
+                    </div>
+                </section>
+                <section class=" features">
                     <?php foreach ($features as $feature) : ?>
                         <div class="feature">
                             <input type="checkbox" name=<?php echo $feature["feature"] ?> value=<?php echo $feature["price"] ?>>

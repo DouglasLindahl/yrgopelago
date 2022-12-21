@@ -15,15 +15,12 @@ const months = [
   ['november', 30],
   ['december', 31],
 ];
-const days = [
-  'monday',
-  'tuesday',
-  'wednesday',
-  'thursday',
-  'friday',
-  'saturday',
-  'sunday',
-];
+// async function fetchDataAsync(url) {
+//   const response = await fetch(url);
+//   let guests = await response.json();
+//   console.log(guests[1]['arrival_date']);
+// }
+// fetchDataAsync('guests.json');
 
 let currenMonth = 1;
 let currenYear = 2023;

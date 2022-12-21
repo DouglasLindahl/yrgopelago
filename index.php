@@ -4,36 +4,19 @@ declare(strict_types=1);
 require(__DIR__ . "/hotelFunctions.php");
 require(__DIR__ . "/prices.php");
 require(__DIR__ . '/vendor/autoload.php');
+// $database = new PDO("sqlite:database/hotel.db");
 
-// if (!$_SESSION["payment_passed"]) {
-//     echo '<script>alert("payment unsuccessful")</script>';
-// } else {
-//     echo '<script>alert("payment successful")</script>';
-// }
-// echo 'Current PHP version: ' . phpversion();
-$months = [
-    ["january", 31],
-    ["february", 28],
-    ["march", 31],
-    ["april", 30],
-    ["may", 31],
-    ["june", 30],
-    ["july", 31],
-    ["august", 31],
-    ["september", 30],
-    ["october", 31],
-    ["november", 30],
-    ["december", 31]
-];
-$days = [
-    "monday",
-    "tuesday",
-    "wednesday",
-    "thursday",
-    "friday",
-    "saturday",
-    "sunday"
-];
+// $stmt = $database->prepare("SELECT * from guests");
+// $stmt->execute();
+// $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+// $arrivalDate = date("d", strtotime($result[0]["arrival_date"]));
+// $departureDate = date("d", strtotime($result[0]["departure_date"]));
+
+
+// $result = json_encode($result);
+// file_put_contents("guests.json", $result);
+
 $currenMonth = 1;
 $currenYear = 2023;
 ?>
@@ -69,9 +52,9 @@ $currenYear = 2023;
         <section class="booking">
             <form action="payment.php" method="POST">
                 <select name="roomSelect" class="roomSelect">
-                    <?php foreach ($rooms as $room) : ?>
-                        <option value=<?php echo $room["price"] ?>><?php echo $room["room"] ?></option>
-                    <?php endforeach ?>
+                    <?php for ($i = 0; $i < count($rooms); $i++) : ?>
+                        <option value=<?php echo $i + 1 ?>><?php echo $rooms[$i]["room"] ?></option>
+                    <?php endfor ?>
                 </select>
                 <section class="dates">
                     <div>

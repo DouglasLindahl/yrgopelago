@@ -1,29 +1,29 @@
 <?php
-session_start();
+require(__DIR__ . "/prices.php");
 $totalCost = 0;
-var_dump($_POST);
-echo "<br>";
-echo "<br>";
+
 
 $departureDate = strtotime($_POST["departureDate"]);
 $arrivalDate = strtotime($_POST["arrivalDate"]);
 $howManyDays = round(($departureDate - $arrivalDate) / (60 * 60 * 24));
 
-
-
 foreach ($_POST as $key => $item) {
     if ($key != "arrivalDate" && $key != "departureDate") {
         if ($key == "roomSelect") {
-            $totalCost += (intval($item) * $howManyDays);
+            $totalCost += (intval($rooms[$item - 1]["price"]) * $howManyDays);
         } else {
             $totalCost += intval($item);
         }
     }
 }
-echo "<br>";
 echo $totalCost;
 $_SESSION["totalCost"] = $totalCost;
-
+$_SESSION["booking"] = [
+    "room" => $_POST["roomSelect"],
+    "arrivalDate" => $_POST["arrivalDate"],
+    "departureDate" => $_POST["departureDate"],
+    "cost" => $_SESSION["totalCost"]
+];
 ?>
 
 <!DOCTYPE html>

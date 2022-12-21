@@ -4,6 +4,7 @@ declare(strict_types=1);
 require(__DIR__ . "/hotelFunctions.php");
 require(__DIR__ . "/prices.php");
 require(__DIR__ . '/vendor/autoload.php');
+$database = new PDO("sqlite:database/hotel.db");
 
 use Dotenv\Dotenv;
 use GuzzleHttp\Client;
@@ -34,6 +35,33 @@ $response = $client->request('POST', 'https://www.yrgopelago.se/centralbank/depo
 $response = $response->getBody()->getContents();
 $response = json_decode($response, true);
 echo "<pre>";
-var_dump($response);
+$_SESSION["booking"]["name"] = $_POST["name"];
+
 $_SESSION["payment_passed"] = true;
+$stmt = $database->prepare("INSERT INTO guests ('room_id', 'name', 'arrival_date', 'departure_date', 'total_cost')  values(?, ?, ?, ?, ?)");
+
+$stmt->bindParam(1, $_SESSION["booking"]["room"]);
+$stmt->bindParam(2, $_SESSION["booking"]["name"]);
+$stmt->bindParam(3, $_SESSION["booking"]["arrivalDate"]);
+$stmt->bindParam(4, $_SESSION["booking"]["departureDate"]);
+$stmt->bindParam(5, $_SESSION["booking"]["cost"]);
+$stmt->execute();
+
+
+$stmt = $database->prepare("SELECT * from guests");
+$stmt->execute();
+$result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+$datePeriod = [];
+$datePeriod["arrival_date"] = $arrivalDate = date("d", strtotime($result[0]["arrival_date"]));
+$datePeriod["departure_date"] = $departureDate = date("d", strtotime($result[0]["departure_date"]));
+$datePeriod["room"] = $room = $_SESSION["booking"]["room"];
+
+$guests = file_get_contents("guests.json");
+$guests = json_decode($guests);
+array_push($guests->{'guests'}, $datePeriod);
+$guests = json_encode($guests);
+var_dump($guests);
+file_put_contents("guests.json", $guests);
+
 header("location:confirmation.php");

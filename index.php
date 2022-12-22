@@ -43,8 +43,6 @@ $currenYear = 2023;
             <?php foreach ($rooms as $room) : ?>
                 <div class="room">
                     <h1><?php echo $room["room"] ?></h1>
-                    <section class="calendar">
-                    </section>
                 </div>
             <?php endforeach ?>
         </section>

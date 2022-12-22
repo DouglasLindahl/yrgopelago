@@ -1,1 +1,7 @@
-{"guests":[{"arrival_date":"01","departure_date":"08","room":"1"},{"arrival_date":"01","departure_date":"08","room":"1"},{"arrival_date":"01","departure_date":"08","room":"1"}]}
+{
+  "guests": [
+    { "arrival_date": "01", "departure_date": "06", "room": "1" },
+    { "arrival_date": "01", "departure_date": "06", "room": "3" },
+    { "arrival_date": "01", "departure_date": "06", "room": "2" }
+  ]
+}

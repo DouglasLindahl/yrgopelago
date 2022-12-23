@@ -66,4 +66,4 @@ array_push($guests->{'guests'}, $datePeriod);
 $guests = json_encode($guests);
 file_put_contents("guests.json", $guests);
 
-//header("location:confirmation.php");
+header("location:confirmation.php");

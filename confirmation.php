@@ -1,3 +1,8 @@
+<?php require("prices.php") ?>
+<?php
+$bookingInfo = [];
+$bookingInfo = array_merge($bookingInfo, $hotelInfo, $_SESSION["booking"]);
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,7 +14,11 @@
 </head>
 
 <body>
-
+    <a href="index.php">
+        < return to main page</a>
+            <h1>Booking information</h1>
+            <?php echo "<pre>";
+            print_r($bookingInfo) ?>
 </body>
 
 </html>

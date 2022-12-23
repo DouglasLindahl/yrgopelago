@@ -35,6 +35,7 @@ async function fetchDataAsync(url) {
       }
     }
   });
+
   for (let x = 0; x < rooms.length; x++) {
     let calendar = document.createElement('section');
     for (let i = 0; i < months[currenMonth - 1][1]; i++) {

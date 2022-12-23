@@ -1,5 +1,10 @@
 <?php
 session_start();
+$database = new PDO("sqlite:database/hotel.db");
+$hotelInfo = [
+    "hotel" => "hotel",
+    "stars" => 1
+];
 $rooms = [
     ["room" => "economy", "price" => 2],
     ["room" => "standard", "price" => 4],

@@ -34,7 +34,6 @@ $response = $client->request('POST', 'https://www.yrgopelago.se/centralbank/depo
 
 $response = $response->getBody()->getContents();
 $response = json_decode($response, true);
-echo "<pre>";
 $_SESSION["booking"]["name"] = $_POST["name"];
 
 $_SESSION["payment_passed"] = true;
@@ -52,16 +51,19 @@ $stmt = $database->prepare("SELECT * from guests");
 $stmt->execute();
 $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
+
 $datePeriod = [];
-$datePeriod["arrival_date"] = $arrivalDate = date("d", strtotime($result[0]["arrival_date"]));
-$datePeriod["departure_date"] = $departureDate = date("d", strtotime($result[0]["departure_date"]));
-$datePeriod["room"] = $room = $_SESSION["booking"]["room"];
+foreach ($result as $guest) {
+    $datePeriod["arrival_date"] = $arrivalDate = date("d", strtotime($guest["arrival_date"]));
+    $datePeriod["departure_date"] = $departureDate = date("d", strtotime($guest["departure_date"]));
+    $datePeriod["room"] = $room = $_SESSION["booking"]["room"];
+}
+
 
 $guests = file_get_contents("guests.json");
 $guests = json_decode($guests);
 array_push($guests->{'guests'}, $datePeriod);
 $guests = json_encode($guests);
-var_dump($guests);
 file_put_contents("guests.json", $guests);
 
-header("location:confirmation.php");
+//header("location:confirmation.php");

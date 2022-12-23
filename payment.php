@@ -6,7 +6,6 @@ $totalCost = 0;
 $departureDate = strtotime($_POST["departureDate"]);
 $arrivalDate = strtotime($_POST["arrivalDate"]);
 $howManyDays = round(($departureDate - $arrivalDate) / (60 * 60 * 24));
-
 foreach ($_POST as $key => $item) {
     if ($key != "arrivalDate" && $key != "departureDate") {
         if ($key == "roomSelect") {

@@ -7,6 +7,18 @@ $departureDate = strtotime($_POST["departureDate"]);
 $arrivalDate = strtotime($_POST["arrivalDate"]);
 $howManyDays = round(($departureDate - $arrivalDate) / (60 * 60 * 24));
 
+$stmt = $database->prepare("SELECT * from guests");
+$stmt->execute();
+$result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+for ($y = 0; $y < count($rooms); $y++) {
+    echo ("room " . $y);
+    for ($i = 0; $i < count($result); $i++) {
+        for ($x = date("d", strtotime($result[$i]["arrival_date"])); $x <= date("d", strtotime($result[$i]["departure_date"])); $x++) {
+            //add booked days in correct rooms to array
+        }
+    }
+}
 
 foreach ($_POST as $key => $item) {
     if ($key != "arrivalDate" && $key != "departureDate") {

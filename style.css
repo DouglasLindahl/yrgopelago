@@ -37,7 +37,7 @@ main {
 .calendar {
   margin-right: 8px;
   margin-top: 8px;
-  width: 60%;
+  height: 80%;
   aspect-ratio: 3/2;
   display: grid;
   grid-template-rows: repeat(5, 1fr);

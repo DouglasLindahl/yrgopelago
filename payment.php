@@ -2,7 +2,6 @@
 require(__DIR__ . "/prices.php");
 $totalCost = 0;
 
-
 $departureDate = strtotime($_POST["departureDate"]);
 $arrivalDate = strtotime($_POST["arrivalDate"]);
 $howManyDays = round(($departureDate - $arrivalDate) / (60 * 60 * 24));
@@ -11,8 +10,24 @@ $stmt = $database->prepare("SELECT * from guests");
 $stmt->execute();
 $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
+$bookedDays = [
+    1 => [],
+    2 => [],
+    3 => [],
+];
+
+foreach ($result as $e) {
+    foreach ($bookedDays as $x => $days) {
+        for ($i = date("d", strtotime($e["arrival_date"])); $i <= date("d", strtotime($e["departure_date"])); $i++) {
+            if (array_keys($bookedDays)[$x - 1] == $e['room_id']) {
+                array_push($bookedDays[$x], intval($i));
+            }
+        }
+    }
+}
+echo "<pre>";
+var_dump($bookedDays);
 for ($y = 0; $y < count($rooms); $y++) {
-    echo ("room " . $y);
     for ($i = 0; $i < count($result); $i++) {
         for ($x = date("d", strtotime($result[$i]["arrival_date"])); $x <= date("d", strtotime($result[$i]["departure_date"])); $x++) {
             //add booked days in correct rooms to array

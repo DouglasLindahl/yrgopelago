@@ -9,6 +9,7 @@ $totalCost = 0;
 // Convert the arrival and departure dates to timestamps
 $departureDate = strtotime($_POST["departureDate"]);
 $arrivalDate = strtotime($_POST["arrivalDate"]);
+$addedFeatures = [];
 
 // Calculate the number of days between the arrival and departure dates
 $howManyDays = round(($departureDate - $arrivalDate) / (60 * 60 * 24));
@@ -27,7 +28,6 @@ $bookedDays = [
     3 => [],
 ];
 
-var_dump($_POST);
 // Loop through each guest in the result array
 foreach ($result as $e) {
     // Loop through each subarray in the bookedDays array
@@ -61,6 +61,12 @@ foreach ($_POST as $key => $item) {
             // Add the cost for that room for the number of days to the total cost
             $totalCost += (intval($rooms[$item - 1]["price"]) * ($howManyDays + 1));
         } else {
+            foreach ($features as $featureKey => $feature) {
+                if (str_replace('_', ' ', $feature["feature"]) == str_replace('_', ' ', $key)) {
+                    // Otherwise, just add the value of the parameter to the total cost
+                    array_push($addedFeatures, $feature["feature"]);
+                }
+            }
             // Otherwise, just add the value of the parameter to the total cost
             $totalCost += intval($item);
         }
@@ -75,6 +81,7 @@ $_SESSION["booking"] = [
     "departureDate" => $_POST["departureDate"],
     "cost" => $_SESSION["totalCost"],
 ];
+$_SESSION["features"] = $addedFeatures;
 ?>
 
 <!DOCTYPE html>

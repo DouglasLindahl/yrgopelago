@@ -4,18 +4,6 @@ declare(strict_types=1);
 require(__DIR__ . "/hotelFunctions.php");
 require(__DIR__ . "/prices.php");
 require(__DIR__ . '/vendor/autoload.php');
-// $database = new PDO("sqlite:database/hotel.db");
-
-// $stmt = $database->prepare("SELECT * from guests");
-// $stmt->execute();
-// $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-// $arrivalDate = date("d", strtotime($result[0]["arrival_date"]));
-// $departureDate = date("d", strtotime($result[0]["departure_date"]));
-
-
-// $result = json_encode($result);
-// file_put_contents("guests.json", $result);
 
 $currenMonth = 1;
 $currenYear = 2023;
@@ -67,8 +55,9 @@ $currenYear = 2023;
                 <section class=" features">
                     <?php foreach ($features as $feature) : ?>
                         <div class="feature">
-                            <input type="checkbox" name=<?php echo $feature["feature"] ?> value=<?php echo $feature["price"] ?>>
+                            <input type="checkbox" name="<?php echo $feature['feature']; ?>" value="<?php echo $feature['price']; ?>">
                             <?php echo $feature["feature"] . " ($" . $feature["price"] . ")" ?>
+
                         </div>
                     <?php endforeach ?>
                 </section>

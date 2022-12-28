@@ -1,7 +1,7 @@
 <?php require("prices.php") ?>
 <?php
 $bookingInfo = [];
-$bookingInfo = array_merge($bookingInfo, $hotelInfo, $_SESSION["booking"]);
+$bookingInfo = array_merge($bookingInfo, $hotelInfo, $_SESSION["booking"], $_SESSION["features"]);
 ?>
 <!DOCTYPE html>
 <html lang="en">

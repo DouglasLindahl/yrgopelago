@@ -10,7 +10,9 @@ $totalCost = 0;
 $departureDate = strtotime($_POST["departureDate"]);
 $arrivalDate = strtotime($_POST["arrivalDate"]);
 $addedFeatures = [];
-
+if (date("d", intval($arrivalDate)) > date("d", intval($departureDate))) {
+    header("location:index.php");
+}
 // Calculate the number of days between the arrival and departure dates
 $howManyDays = round(($departureDate - $arrivalDate) / (60 * 60 * 24));
 

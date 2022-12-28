@@ -3,19 +3,6 @@
 declare(strict_types=1);
 require("prices.php");
 
-
-if (isset($_POST)) {
-    $key = 1;
-    foreach ($_POST as $feature) {
-        $features[$key]["price"] = $feature;
-        echo "<br>";
-        echo $features[1]["price"];
-        echo "<br>";
-        echo $feature;
-        echo "<br>";
-    }
-}
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -31,7 +18,8 @@ if (isset($_POST)) {
 <body>
     <a class="resetBooking warning">Reset all bookings</a>
     <script src="script.js"></script>
-    <form action="admin.php" method="POST">
+    <form action="updateFeaturePrices.php" method="POST">
+        <h4>features</h4>
         <?php foreach ($features as $feature) : ?>
             <div class="feature">
                 <input type="input" name="<?php echo $feature['feature']; ?>" value="<?php echo $feature['price']; ?>">
@@ -40,6 +28,17 @@ if (isset($_POST)) {
         <?php endforeach ?>
         <input type="submit">
     </form>
+    <form action="updateRoomPrices.php" method="POST">
+        <h4>Rooms</h4>
+        <?php foreach ($rooms as $room) : ?>
+            <div class="feature">
+                <input type="input" name="<?php echo $room["room"]; ?>" value="<?php echo $room['price']; ?>">
+                <?php echo $room["room"] ?>
+            </div>
+        <?php endforeach ?>
+        <input type="submit">
+    </form>
+
 </body>
 
 </html>

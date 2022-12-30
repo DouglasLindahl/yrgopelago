@@ -15,31 +15,25 @@ if (!isset($_SESSION["loginVerified"])) {
     <title>Document</title>
 </head>
 
-<?php if ($_SESSION["loginVerified"]) : ?>
+<?php if ($_SESSION["loginVerified"]) :
+?>
 
     <body>
         <main>
             <form action="registerVerification.php" method="POST">
-                <div class="firstName">
-                    <label for="first_name">first name</label>
-                    <input type="text" name="first_name" placeholder="first name">
+                <div class="name">
+                    <label for="name">name</label>
+                    <input type="text" name="name" placeholder="name">
                 </div>
-                <div class="lastName">
-                    <label for="last_name">last name</label>
-                    <input type="text" name="last_name" placeholder="last name">
+                <div class="key">
+                    <label for="key">api_key</label>
+                    <input type="text" name="key" placeholder="key">
                 </div>
-                <div class="email">
-                    <label for="email">email</label>
-                    <input type="email" name="email" placeholder="email">
-                </div>
-                <div class="password">
-                    <label for="password">Password</label>
-                    <input type="password" name="password" placeholder="password">
-                </div>
-                <button type="submit" name="submit" class="registerSubmit">register account</button>
+                <button type="submit" name="submit" class="registerSubmit">register admin</button>
             </form>
         </main>
     </body>
-<?php endif ?>
+<?php endif
+?>
 
 </html>

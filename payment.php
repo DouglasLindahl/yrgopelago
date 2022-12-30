@@ -9,6 +9,7 @@ $totalCost = 0;
 // Convert the arrival and departure dates to timestamps
 $departureDate = strtotime($_POST["departureDate"]);
 $arrivalDate = strtotime($_POST["arrivalDate"]);
+
 $addedFeatures = [];
 if (date("d", intval($arrivalDate)) > date("d", intval($departureDate))) {
     header("location:index.php");

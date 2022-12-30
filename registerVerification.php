@@ -1,18 +1,21 @@
 <?php
 require("prices.php");
 
-if (isset($_POST["password"])) {
-    $password = password_hash(filter_var(($_POST["password"])), 1);
-    $email = filter_var($_POST["email"], FILTER_SANITIZE_EMAIL);
-    $first_name = htmlspecialchars($_POST["first_name"]);
-    $last_name = htmlspecialchars($_POST["last_name"]);
-    $stmt = $database->prepare("INSERT INTO 'admin' ('first_name', 'last_name', 'email', 'password')  values(?, ?, ?, ?)");
+// Check if the form parameter "key" is set
+if (isset($_POST["key"])) {
+    // Sanitize the user input
+    $name = htmlspecialchars($_POST["name"]);
+    $key = htmlspecialchars($_POST["key"]);
 
-    $stmt->bindParam(1, $first_name);
-    $stmt->bindParam(2, $last_name);
-    $stmt->bindParam(3, $email);
-    $stmt->bindParam(4, $password);
+    // Prepare an INSERT statement to insert a new record into the "admin" table
+    $stmt = $database->prepare("INSERT INTO 'admin' ('name', 'api_key')  values(?, ?)");
+
+    // Bind the user input to the statement parameters
+    $stmt->bindParam(1, $name);
+    $stmt->bindParam(2, $key);
+    // Execute the statement
     $stmt->execute();
 
+    // Redirect to the login page
     header("location: login.php");
 }

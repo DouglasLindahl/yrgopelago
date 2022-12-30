@@ -15,32 +15,39 @@ require("prices.php")
     <main>
         <section class="loginWindow">
             <?php
-            if (isset($_SESSION["incorrectPassword"])) {
-                if ($_SESSION["incorrectPassword"] == true) {
-                    unset($_SESSION["incorrectPassword"]);
-                    echo "password incorrect";
+            // Check if the session variable "incorrectKey" is set, and if it's true
+            if (isset($_SESSION["incorrectKey"])) {
+                if ($_SESSION["incorrectKey"] == true) {
+                    // Unset the session variable "incorrectKey"
+                    unset($_SESSION["incorrectKey"]);
+                    // Echo a message to the user indicating that the API key is incorrect
+                    echo "key incorrect";
                 }
             }
-            if (isset($_SESSION["incorrectEmail"])) {
-                if ($_SESSION["incorrectEmail"] == true) {
-                    unset($_SESSION["incorrectEmail"]);
-                    echo "that email does not exist";
+            // Check if the session variable "incorrectName" is set, and if it's true
+            if (isset($_SESSION["incorrectName"])) {
+                if ($_SESSION["incorrectName"] == true) {
+                    // Unset the session variable "incorrectName"
+                    unset($_SESSION["incorrectName"]);
+                    // Echo a message to the user indicating that they are not an admin
+                    echo "you are not an admin";
                 }
             }
             ?>
             <form action="loginVerification.php" method="POST">
-                <div class="emailSection">
-                    <label for="email">Email</label>
-                    <input class="emailSubmit inputWindow" type="email" name="email" id="email" placeholder="example@gmail.com" required>
+                <div class="nameSection">
+                    <label for="name">name</label>
+                    <input class="nameSubmit inputWindow" type="text" name="name" id="name" placeholder="name" required>
                 </div>
-                <div class="passwordSection">
-                    <label for="password">Password</label>
-                    <input class="passwordSubmit inputWindow" type="password" name="password" id="password" placeholder="password" required>
+                <div class="keySection">
+                    <label for="key">api_key</label>
+                    <input class="keySubmit inputWindow" type="key" name="key" id="password" placeholder="api_key" required>
                 </div>
                 <button type="submit" name="submit" class="loginSubmit">login</button>
             </form>
         </section>
     </main>
+
 </body>
 
 </html>

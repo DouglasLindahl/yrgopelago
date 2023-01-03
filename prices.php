@@ -11,6 +11,8 @@ $y->execute();
 $rooms = $y->fetchAll(PDO::FETCH_ASSOC);
 
 $hotelInfo = [
+    "island" => "island",
     "hotel" => "hotel",
-    "stars" => 1
+    "stars" => 1,
+    "info" => "thank you for staying at the hotel hotel"
 ];

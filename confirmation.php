@@ -1,7 +1,7 @@
 <?php require("prices.php") ?>
 <?php
 $bookingInfo = [];
-$bookingInfo = array_merge($bookingInfo, $hotelInfo, $_SESSION["booking"], $_SESSION["features"]);
+$bookingInfo = json_encode(array_merge($bookingInfo, $hotelInfo, $_SESSION["booking"], $_SESSION["features"]));
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -18,7 +18,7 @@ $bookingInfo = array_merge($bookingInfo, $hotelInfo, $_SESSION["booking"], $_SES
         < return to main page</a>
             <h1>Booking information</h1>
             <?php echo "<pre>";
-            print_r($bookingInfo) ?>
+            echo ($bookingInfo) ?>
 </body>
 
 </html>

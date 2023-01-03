@@ -14,47 +14,25 @@ $client = new Client();
 $dotenv = Dotenv::createImmutable(__DIR__);
 $dotenv->load();
 
-
-// Make a POST request to the specified URL, with the user name, API key, and amount as form parameters
-$response = $client->request('POST', 'https://www.yrgopelago.se/centralbank/withdraw', [
+$_SESSION["booking"]["name"] = $_POST["name"];
+// Make a POST request to the specified URL, with the user name and transfer code as form parameters
+$response = $client->request('POST', 'https://www.yrgopelago.se/centralbank/transferCode', [
     'form_params' => [
-        "user" => $_POST["name"], "api_key" => $_POST["api_key"], "amount" => $_SESSION["totalCost"]
+        "transferCode" => $_POST["transferCode"], "totalcost" => $_SESSION["totalCost"]
     ]
 ]);
-
-// Get the response body as a string and decode it into a PHP array
-$payment = $response->getBody()->getContents();
-$payment = json_decode($payment, true);
-
-// Check if the payment array contains an "error" key
-if (array_key_exists("error", $payment)) {
-    echo $payment["error"];
-    // Redirect to the index page
+$deposit = $response->getBody()->getContents();
+if (strstr($deposit, "error")) {
     header("location:index.php");
 } else {
-    // Set the session variable "transfer_code" to the transfer code in the payment array
-    $_SESSION["transfer_code"] = $payment["transferCode"];
-
     // Make a POST request to the specified URL, with the user name and transfer code as form parameters
     $response = $client->request('POST', 'https://www.yrgopelago.se/centralbank/deposit', [
         'form_params' => [
-            "user" => "Douglas", "transferCode" => $payment["transferCode"]
+            "user" => "Douglas", "transferCode" => $_POST["transferCode"]
         ]
     ]);
     $deposit = $response->getBody()->getContents();
-    if (!strpos($deposit, "Success.")) {
-        header("location:index.php");
-        die();
-    }
-    // Get the response body as a string and decode it into a PHP array
-    $response = $response->getBody()->getContents();
-    $response = json_decode($response, true);
 
-    // Set the session variable "booking" to an array with the user name
-    $_SESSION["booking"]["name"] = $_POST["name"];
-
-    // Set the session variable "payment_passed" to true
-    $_SESSION["payment_passed"] = true;
 
 
     // Prepare an INSERT statement to insert a new record into the "guests" table

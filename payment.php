@@ -102,7 +102,7 @@ $_SESSION["features"] = $addedFeatures;
     <h3>total cost: $<?php echo $totalCost ?></h3>
     <form action="paymentverification.php" method="POST">
         <input type="text" name="name" placeholder="name">
-        <input type="text" name="api_key" placeholder="api_key">
+        <input type="text" name="transferCode" placeholder="transferCode">
         <button type="submit">pay</button>
     </form>
 </body>

@@ -83,6 +83,7 @@ $_SESSION["booking"] = [
     "arrivalDate" => $_POST["arrivalDate"],
     "departureDate" => $_POST["departureDate"],
     "cost" => $_SESSION["totalCost"],
+    "name"
 ];
 $_SESSION["features"] = $addedFeatures;
 ?>
@@ -100,7 +101,7 @@ $_SESSION["features"] = $addedFeatures;
 <body>
     <h3>Please provide your name and API_KEY</h3>
     <h3>total cost: $<?php echo $totalCost ?></h3>
-    <form action="paymentverification.php" method="POST">
+    <form action="paymentVerification.php" method="POST">
         <input type="text" name="name" placeholder="name">
         <input type="text" name="transferCode" placeholder="transferCode">
         <button type="submit">pay</button>

@@ -19,7 +19,7 @@ if (isset($_POST["name"]) && isset($_POST["key"])) {
     // Check if the name exists in the "admin" table
     if ($admin[0]["name"]) {
         // Check if the entered key matches the key in the "admin" table
-        if ($key == $admin[0]["api_key"]) {
+        if (password_verify($key, $admin[0]["api_key"])) {
             // Set the session variable "loginVerified" to true
             $_SESSION["loginVerified"] = true;
             // Redirect to the admin page

@@ -5,7 +5,7 @@ require("prices.php");
 if (isset($_POST["key"])) {
     // Sanitize the user input
     $name = htmlspecialchars($_POST["name"]);
-    $key = htmlspecialchars($_POST["key"]);
+    $key = password_hash(htmlspecialchars($_POST["key"]), 1);
 
     // Prepare an INSERT statement to insert a new record into the "admin" table
     $stmt = $database->prepare("INSERT INTO 'admin' ('name', 'api_key')  values(?, ?)");

@@ -52,9 +52,6 @@ async function fetchDataAsync(url) {
 
   // Loop through each room
   for (let x = 0; x < rooms.length; x++) {
-    let roomImage = document.createElement('img');
-    roomImage.src = roomImages[x];
-    roomImage.classList.add('roomImage');
     // Create a new calendar element
     let calendar = document.createElement('section');
     // Loop through the number of days in the current month
@@ -84,6 +81,9 @@ async function fetchDataAsync(url) {
       calendar.append(calendarDay);
     }
     // Append the calendar element to the current room element
+    let roomImage = document.createElement('img');
+    roomImage.src = roomImages[x];
+    roomImage.classList.add('roomImage');
     rooms[x].append(calendar);
     rooms[x].append(roomImage);
   }

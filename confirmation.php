@@ -1,6 +1,7 @@
 <?php require("prices.php") ?>
 <?php
 $bookingInfo = [];
+$_SESSION["booking"]["room"] = $rooms[intval($_SESSION["booking"]["room"]) - 1]["room"];
 $bookingInfo = json_encode(array_merge($bookingInfo, $hotelInfo, $_SESSION["booking"], $_SESSION["features"]));
 ?>
 <!DOCTYPE html>

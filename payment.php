@@ -79,7 +79,7 @@ foreach ($_POST as $key => $item) {
 // Save the total cost and booking details in the session
 $_SESSION["totalCost"] = $totalCost;
 $_SESSION["booking"] = [
-    "room" => $rooms[$_POST["roomSelect"] - 1]["room"],
+    "room" => $_POST["roomSelect"],
     "arrivalDate" => $_POST["arrivalDate"],
     "departureDate" => $_POST["departureDate"],
     "cost" => $_SESSION["totalCost"]

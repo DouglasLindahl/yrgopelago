@@ -2,11 +2,11 @@ WHY NOT A GIF HERE? TO SET THE MODE.
 
 # Island name
 
-Some text about your lovely island
+Island
 
 # Hotel name
 
-Why not add some info about the hotel of your dreams?
+Hotel
 
 # Instructions
 

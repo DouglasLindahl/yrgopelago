@@ -22,11 +22,14 @@ $currenYear = 2023;
 
 <body>
     <header>
-        <section class="heroSection">
-            <div class="heroImage"></div>
-        </section>
+        <h1>Island Hotel</h1>
     </header>
     <main>
+        <section class="heroSection">
+            <img src="images/heroOne.jpg" alt="">
+            <img src="images/heroTwo.jpg" alt="">
+            <img src="images/heroThree.jpg" alt="">
+        </section>
         <section class="rooms">
             <?php foreach ($rooms as $room) : ?>
                 <div class="room">

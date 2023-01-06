@@ -2,6 +2,12 @@ const body = document.querySelector('body');
 const main = body.querySelector('main');
 const rooms = document.querySelectorAll('.room');
 
+const roomImages = [
+  'images/economy.jpg',
+  'images/standard.jpg',
+  'images/luxury.jpg',
+];
+
 const months = [
   ['january', 31],
   ['february', 28],
@@ -46,6 +52,9 @@ async function fetchDataAsync(url) {
 
   // Loop through each room
   for (let x = 0; x < rooms.length; x++) {
+    let roomImage = document.createElement('img');
+    roomImage.src = roomImages[x];
+    roomImage.classList.add('roomImage');
     // Create a new calendar element
     let calendar = document.createElement('section');
     // Loop through the number of days in the current month
@@ -76,6 +85,7 @@ async function fetchDataAsync(url) {
     }
     // Append the calendar element to the current room element
     rooms[x].append(calendar);
+    rooms[x].append(roomImage);
   }
 }
 // Invoke the async function and pass in the URL to fetch data from

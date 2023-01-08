@@ -16,8 +16,13 @@ $dotenv->load();
 
 $_SESSION["booking"]["name"] = $_POST["name"];
 // Make a POST request to the specified URL, with the user name and transfer code as form parameters
+if (!isValidUuid(htmlspecialchars($_POST["transferCode"]))) {
+    header("location:index.php");
+    die();
+}
 $response = $client->request('POST', 'https://www.yrgopelago.se/centralbank/transferCode', [
     'form_params' => [
+        //check transferCode
         "transferCode" => $_POST["transferCode"], "totalcost" => $_SESSION["totalCost"]
     ]
 ]);

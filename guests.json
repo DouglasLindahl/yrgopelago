@@ -1,1 +1,16 @@
-{"guests":[{"arrival_date":"01","departure_date":"01","room":"economy"},{"arrival_date":"01","departure_date":"01","room":"2"},{"arrival_date":"12","departure_date":"12","room":"1"},{"arrival_date":"13","departure_date":"13","room":"1"},{"arrival_date":"12","departure_date":"12","room":"2"},{"arrival_date":"31","departure_date":"31","room":"1"},{"arrival_date":"30","departure_date":"30","room":"1"},{"arrival_date":"01","departure_date":"01","room":"1"},{"arrival_date":"02","departure_date":"02","room":"1"}]}
+{
+  "guests": [
+    { "arrival_date": "01", "departure_date": "01", "room": "economy" },
+    { "arrival_date": "01", "departure_date": "01", "room": "2" },
+    { "arrival_date": "12", "departure_date": "12", "room": "1" },
+    { "arrival_date": "13", "departure_date": "13", "room": "1" },
+    { "arrival_date": "12", "departure_date": "12", "room": "2" },
+    { "arrival_date": "31", "departure_date": "31", "room": "1" },
+    { "arrival_date": "30", "departure_date": "30", "room": "1" },
+    { "arrival_date": "01", "departure_date": "01", "room": "1" },
+    { "arrival_date": "02", "departure_date": "02", "room": "1" },
+    { "arrival_date": "03", "departure_date": "03", "room": "1" },
+    { "arrival_date": "04", "departure_date": "04", "room": "1" },
+    { "arrival_date": "01", "departure_date": "01", "room": "3" }
+  ]
+}

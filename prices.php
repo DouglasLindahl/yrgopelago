@@ -2,7 +2,7 @@
 session_start();
 $database = new PDO("sqlite:database/hotel.db");
 
-$x = $database->prepare("SELECT feature, price from features");
+$x = $database->prepare("SELECT id, feature, price from features");
 $x->execute();
 $features = $x->fetchAll(PDO::FETCH_ASSOC);
 

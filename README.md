@@ -10,7 +10,8 @@ Hotel
 
 # Instructions
 
-If your project requires some installation or similar, please inform your user 'bout it. For instance, if you want a more decent indentation of your .php files, you could edit [.editorconfig]('/.editorconfig').
+https://douglaslindahl.se/yrgopelago/
+https://douglaslindahl.se/yrgopelago/login - for admin
 
 # Code review
 

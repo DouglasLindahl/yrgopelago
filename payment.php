@@ -3,7 +3,6 @@
 // Require the prices file
 require(__DIR__ . "/prices.php");
 
-// Initialize the total cost to 0
 $totalCost = 0;
 
 // Convert the arrival and departure dates to timestamps
@@ -21,7 +20,6 @@ $howManyDays = round(($departureDate - $arrivalDate) / (60 * 60 * 24));
 $stmt = $database->prepare("SELECT * from guests");
 $stmt->execute();
 
-// Fetch the results as an associative array
 $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 // Initialize the bookedDays array with three empty subarrays
@@ -33,7 +31,6 @@ $bookedDays = [
 
 // Loop through each guest in the result array
 foreach ($result as $e) {
-    // Loop through each subarray in the bookedDays array
     foreach ($bookedDays as $x => $days) {
         // Loop through the range of days between the guest's arrival and departure dates
         for ($i = date("d", strtotime($e["arrival_date"])); $i <= date("d", strtotime($e["departure_date"])); $i++) {
@@ -55,7 +52,6 @@ for ($i = date("d", strtotime($_POST['arrivalDate'])); $i <= date("d", strtotime
 }
 
 
-// Loop through each POST parameter
 foreach ($_POST as $key => $item) {
     // If the parameter is not the arrival or departure date
     if ($key != "arrivalDate" && $key != "departureDate") {

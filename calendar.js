@@ -29,28 +29,21 @@ let bookedDays = {
   2: [],
   3: [],
 };
-// Define an async function to fetch data from the given URL
+
 async function fetchDataAsync(url) {
-  // Fetch the data from the URL
   const response = await fetch(url);
-  // Convert the response to JSON format
   let guests = await response.json();
-  // Loop through each guest in the guests array
+  // checks which days are already booked and inserts them into the bookedDays array depending on which room
   guests['guests'].forEach((e) => {
-    // Loop through each booked day object in the bookedDays object
     for (let x = 0; x < Object.keys(bookedDays).length; x++) {
-      // Loop through the range of days between the arrival and departure dates of the current guest
       for (let i = e['arrival_date']; i <= e['departure_date']; i++) {
-        // Check if the room of the current guest matches the current booked day object
         if (Object.keys(bookedDays)[x] == e['room']) {
-          // If the room matches, add the current day to the bookedDays object for the matching room
           bookedDays[x + 1].push(parseInt(i));
         }
       }
     }
   });
 
-  // Loop through each room
   for (let x = 0; x < rooms.length; x++) {
     // Create a new calendar element
     let calendar = document.createElement('section');

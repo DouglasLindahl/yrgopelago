@@ -51,6 +51,46 @@ if ($_SESSION["loginVerified"]) :
             <input type="submit">
         </form>
 
+        <section>
+            <h3>economy</h3>
+            <?php
+            $stmt = $database->prepare("SELECT SUM((julianday(departure_date) +1) - julianday(arrival_date)) AS days_booked
+                FROM guests where room_id = 1;");
+            $stmt->execute();
+            $result = $stmt->fetch(PDO::FETCH_DEFAULT);
+            echo "days booked: " . $result["days_booked"] . " / 31";
+            ?>
+        </section>
+        <section>
+            <h3>standard</h3>
+            <?php
+            $stmt = $database->prepare("SELECT SUM((julianday(departure_date) +1) - julianday(arrival_date)) AS days_booked
+                FROM guests where room_id = 2;");
+            $stmt->execute();
+            $result = $stmt->fetch(PDO::FETCH_DEFAULT);
+            echo "days booked: " . $result["days_booked"] . " / 31";
+            ?>
+        </section>
+        <section>
+            <h3>luxury</h3>
+            <?php
+            $stmt = $database->prepare("SELECT SUM((julianday(departure_date) +1) - julianday(arrival_date)) AS days_booked
+                FROM guests where room_id = 3;");
+            $stmt->execute();
+            $result = $stmt->fetch(PDO::FETCH_DEFAULT);
+            echo "days booked: " . $result["days_booked"] . " / 31";
+            ?>
+        </section>
+        <section>
+            <h3>total</h3>
+            <?php
+            $stmt = $database->prepare("SELECT SUM((julianday(departure_date) +1) - julianday(arrival_date)) AS days_booked
+                FROM guests");
+            $stmt->execute();
+            $result = $stmt->fetch(PDO::FETCH_DEFAULT);
+            echo "total days booked: " . $result["days_booked"] . " / 93";
+            ?>
+        </section>
     </body>
 <?php endif ?>
 

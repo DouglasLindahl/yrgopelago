@@ -1,29 +1,143 @@
 {
   "vacation": [
     {
-      "island": "Anthrax island",
-      "hotel": "Budget hostel",
-      "arrival_date": "2023-01-01",
-      "departure_date": "2023-01-04",
-      "total_cost": "8",
-      "stars": "2",
-      "features": [{ "name": "Fruit basket for vitamin C", "cost": 1 }],
-      "addtional_info": "Thank you for saving a buck at Budget hostel."
+      "island": "Point Nemo",
+      "hotel": "The Good Morrow",
+      "arrival_date": "2023-01-11",
+      "departure_date": "2023-01-12",
+      "total_cost": "6",
+      "stars": 5,
+      "features": [
+        {
+          "name": "Poetry Waking",
+          "cost": 3
+        }
+      ],
+      "additional_info": {
+        "message": "Very good. Enjoy your stay. But not too much, you might never leave."
+      }
     },
     {
-      "island": "Isla Bellevue",
-      "hotel": "Grand central Hotel",
-      "arrival_date": "2023-01-05",
-      "departure_date": "2023-01-08",
-      "total_cost": "11",
-      "stars": "3",
-      "features": [{ "name": "Pinball machine", "cost": 3 }],
-      "addtional_info": [
+      "island": "Eldoon Isle",
+      "hotel": "Itsakon Hotel",
+      "arrival_date": "2023-01-1",
+      "departure_date": "2023-01-2",
+      "total_cost": "12",
+      "stars": 4,
+      "features": [
         {
-          "greeting": "Thank you for choosing Centralhotellet",
-          "video": "https://www.youtube.com/watch?v=5Ym-k30X5PY"
+          "name": "Megafridge",
+          "cost": "2"
+        },
+        {
+          "name": "Midnight Lunch",
+          "cost": "2"
         }
-      ]
+      ],
+      "addtional_info": "Thanks for staying at Itsakon Hotel"
+    },
+    {
+      "island": "Dirt Cheap Island",
+      "hotel": "The Very Average Island Inn",
+      "arrival_date": "2023-01-01",
+      "departure_date": "2023-01-10",
+      "total_cost": 14,
+      "stars": "3",
+      "features": [
+        {
+          "name": "baseballbat",
+          "cost": 1
+        },
+        {
+          "name": "vaccination",
+          "cost": 2
+        },
+        {
+          "name": "minibar",
+          "cost": 3
+        }
+      ],
+      "additional_info": "Thank you for staying at this very average hotel."
+    },
+    {
+      "island": "Isla de los Monos",
+      "hotel": "Overwater Resort",
+      "arrival_date": "2023-01-05",
+      "departure_date": "2023-01-12",
+      "total_cost": 6,
+      "stars": "2",
+      "features": [],
+      "additional_info": "Thank you for choosing Overwater Resort."
+    },
+    {
+      "island": "The Yellow Duck Island",
+      "hotel": "The Yellow Duck",
+      "arrival_date": "2023-01-23",
+      "departure_date": "2023-01-26",
+      "total_cost": "3",
+      "stars": "1",
+      "features": [],
+      "addtional_info": "Thank you for staying at the Yellow Duck!"
+    },
+    {
+      "island": "Gooh-Gooh Island",
+      "hotel": "Hotel Yahoo",
+      "arrival_date": "2023-01-27",
+      "departure_date": "2023-01-28",
+      "total_cost": "5",
+      "stars": "3",
+      "features": [
+        {
+          "name": "Yahoo",
+          "cost": 1
+        }
+      ],
+      "addtional_info": "Welcome to Yahoo!"
+    },
+    {
+      "island": "Nomi island",
+      "hotel": "Nomis Hotel",
+      "arrival_date": "2023-01-01",
+      "departure_date": "2023-01-15",
+      "total_cost": 119,
+      "stars": "5",
+      "features": [
+        {
+          "name": "Island_tour",
+          "cost": 4
+        }
+      ],
+      "addtional_info": "Thanks for choosing Nomis!"
+    },
+    {
+      "island": "Nomi island",
+      "hotel": "Nomis Hotel",
+      "arrival_date": "2023-01-16",
+      "departure_date": "2023-01-24",
+      "total_cost": 69,
+      "stars": "5",
+      "features": [
+        {
+          "name": "sauna",
+          "cost": 2
+        }
+      ],
+      "addtional_info": "Thanks for choosing Nomis!"
+    },
+    {
+      "island": "Nomi island",
+      "hotel": "Nomis Hotel",
+      "arrival_date": "2023-01-01",
+      "departure_date": "2023-01-01",
+      "total_cost": 8,
+      "stars": "5",
+      "features": [
+        {
+          "name": "Island_tour",
+          "cost": 4
+        }
+      ],
+      "addtional_info": "Thanks for choosing Nomis!"
     }
   ]
 }

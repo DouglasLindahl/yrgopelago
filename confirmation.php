@@ -1,10 +1,11 @@
 
-<?php require("prices.php") ?>
+<?php require("prices.php"); ?>
 <?php
+
 $bookedFeatures = [];
 foreach ($_SESSION["features"] as $key => $feature) {
     array_push($bookedFeatures, ["name" => $feature, "cost" => $features[$key]["price"]]);
-}
+};
 $bookingInfo = [
     "island" => $hotelInfo["island"],
     "hotel" => $hotelInfo["hotel"],

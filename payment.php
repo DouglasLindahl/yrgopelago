@@ -81,6 +81,7 @@ $_SESSION["booking"] = [
     "cost" => $_SESSION["totalCost"]
 ];
 $_SESSION["features"] = $addedFeatures;
+
 ?>
 
 <!DOCTYPE html>

@@ -5,6 +5,7 @@ require(__DIR__ . "/hotelFunctions.php");
 require(__DIR__ . "/prices.php");
 require(__DIR__ . '/vendor/autoload.php');
 unset($_SESSION["loginVerified"]);
+
 $currenMonth = 1;
 $currenYear = 2023;
 ?>
@@ -32,9 +33,9 @@ $currenYear = 2023;
         </section>
         <section class="rooms">
             <?php foreach ($rooms as $room) : ?>
-                <div class="room">
-                    <h1><?php echo $room["room"] ?></h1>
-                </div>
+            <div class="room">
+                <h1><?php echo $room["room"] ?></h1>
+            </div>
             <?php endforeach ?>
         </section>
 
@@ -42,7 +43,8 @@ $currenYear = 2023;
             <form action="payment.php" method="POST">
                 <select name="roomSelect" class="roomSelect">
                     <?php for ($i = 0; $i < count($rooms); $i++) : ?>
-                        <option value=<?php echo $i + 1 ?>><?php echo $rooms[$i]["room"] . " ($" . $rooms[$i]["price"] . ")" ?></option>
+                    <option value=<?php echo $i + 1 ?>>
+                        <?php echo $rooms[$i]["room"] . " ($" . $rooms[$i]["price"] . ")" ?></option>
                     <?php endfor ?>
                 </select>
                 <section class="dates">
@@ -57,18 +59,22 @@ $currenYear = 2023;
                 </section>
                 <section class=" features">
                     <?php foreach ($features as $feature) : ?>
-                        <div class="feature">
-                            <input type="checkbox" name="<?php echo $feature['feature']; ?>" value="<?php echo $feature['price']; ?>">
-                            <?php echo $feature["feature"] . " ($" . $feature["price"] . ")" ?>
+                    <div class="feature">
+                        <input type="checkbox" name="<?php echo $feature['feature']; ?>"
+                            value="<?php echo $feature['price']; ?>">
+                        <?php echo $feature["feature"] . " ($" . $feature["price"] . ")" ?>
 
-                        </div>
+                    </div>
                     <?php endforeach ?>
                 </section>
                 <button type="submit">submit</button>
             </form>
         </section>
+        <div class="visited-hotels"><a href="logbook.php">Visited Hotels</a></div>
+
     </main>
     <script src="calendar.js"></script>
+
 </body>
 
 </html>

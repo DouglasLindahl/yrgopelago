@@ -78,3 +78,19 @@ header h1 {
 .roomImage {
   width: 50%;
 }
+
+.visited-hotels {
+  height: 2rem;
+  width: 10rem;
+  background-color: rgb(255, 176, 30);
+  text-align: center;
+  padding: 1rem;
+}
+.a:link {
+  text-decoration: none;
+  color: black;
+}
+
+a:visited {
+  text-decoration: none;
+}

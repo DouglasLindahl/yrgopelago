@@ -65,7 +65,7 @@ function createFactBox()
 <div class="fact-box">
     <p>
         <?php echo "The total cost for all the bookings at Island Hotel is: " . $totalCost . "$" . " <br>
-        The average cost per bookings is: " . $averageCost . "$"; ?>
+        The average cost per booking is: " . $averageCost . "$"; ?>
     </p>
 </div>
 <?php

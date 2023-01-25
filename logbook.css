@@ -1,0 +1,42 @@
+.card {
+  width: 50%;
+  height: 100%;
+  gap: 3rem;
+}
+
+.card-item,
+.fact-box,
+.booking-page {
+  width: 50%;
+  height: 100%;
+  background-color: rgb(255, 176, 30);
+  display: column;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  margin: 2rem;
+  padding: 2rem;
+}
+
+h2 {
+  padding-left: 2rem;
+  padding-bottom: 0.1rem;
+  padding-top: 1rem;
+}
+
+.booking-page {
+  height: 1rem;
+  width: 10rem;
+  background-color: rgb(255, 176, 30);
+  text-align: center;
+  padding-left: 1rem;
+}
+
+.a:link {
+  text-decoration: none;
+  color: black;
+}
+
+a:visited {
+  text-decoration: none;
+}

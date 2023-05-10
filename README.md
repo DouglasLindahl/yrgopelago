@@ -1,17 +1,10 @@
 WHY NOT A GIF HERE? TO SET THE MODE.
 
 # Island name
-
 Island
 
 # Hotel name
-
 Hotel
-
-# Instructions
-
-https://douglaslindahl.se/yrgopelago/
-https://douglaslindahl.se/yrgopelago/login - for admin
 
 # Code review
 
